@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRISTIANO RONALDO | SIUUU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cr7-red: #FF0000;
+            --cr7-white: #FFFFFF;
+            --cr7-black: #000000;
+            --cr7-gold: #FFD700;
+            --cr7-gray: #2A2A2A;
+            --cr7-silver: #C0C0C0;
+        }
+
+        body {
+            background: var(--cr7-black);
+            color: var(--cr7-white);
+            font-family: 'Oswald', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* АНИМАЦИИ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px var(--cr7-red); }
+            50% { text-shadow: 0 0 20px var(--cr7-red), 0 0 30px var(--cr7-red); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ХЕДЕР - СОВЕРШЕННО НОВЫЙ СТИЛЬ */
+        .cr7-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0,0,0,0.9);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--cr7-red);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .cr7-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cr7-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: var(--cr7-red);
+            text-shadow: 3px 3px 0 var(--cr7-white);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .cr7-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .cr7-nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            color: var(--cr7-white);
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--cr7-red);
+            transform: scale(1.1);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cr7-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        /* ГЕРОЙ СЕКЦИЯ - УНИКАЛЬНЫЙ ДИЗАЙН */
+        .cr7-hero {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,0,0,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,215,0,0.2) 0%, transparent 50%),
+                linear-gradient(45deg, #000000 0%, #1a0000 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: slideIn 1s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 6rem;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--cr7-white), var(--cr7-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 5px 5px 0 rgba(255,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cr7-silver);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            color: var(--cr7-red);
+            display: block;
+        }
+
+        .stat-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: var(--cr7-silver);
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cr7-badge {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--cr7-red) 0%, transparent 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .badge-text {
+            font-family: 'Anton', sans-serif;
+            font-size: 8rem;
+            color: var(--cr7-white);
+            text-shadow: 3px 3px 0 var(--cr7-black);
+        }
+
+        /* СЕКЦИЯ ДОСТИЖЕНИЙ - ДРУГАЯ СТРУКТУРА */
+        .achievements-section {
+            padding: 100px 20px;
+            background: var(--cr7-gray);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            color: var(--cr7-white);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 5px;
+            background: var(--cr7-red);
+        }
+
+        .trophies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .trophy-card {
+            background: linear-gradient(135deg, var(--cr7-black) 0%, var(--cr7-gray) 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .trophy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cr7-red), var(--cr7-gold));
+        }
+
+        .trophy-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cr7-red);
+        }
+
+        .trophy-icon {
+            font-size: 4rem;
+            color: var(--cr7-gold);
+            margin-bottom: 20px;
+        }
+
+        .trophy-count {
+            font-family: 'Anton', sans-serif;
+            font-size: 3.5rem;
+            color: var(--cr7-white);
+            margin-bottom: 10px;
+        }
+
+        .trophy-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cr7-red);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        /* СЕКЦИЯ КАРЬЕРЫ - НОВЫЙ ПОДХОД */
+        .career-journey {
+            padding: 100px 20px;
+            background: var(--cr7-black);
+        }
+
+        .journey-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .club-card {
+            background: var(--cr7-gray);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            border-left: 5px solid var(--cr7-red);
+            transition: all 0.3s ease;
+        }
+
+        .club-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255,0,0,0.3);
+        }
+
+        .club-years {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--cr7-red);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .club-name {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            color: var(--cr7-white);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .club-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .club-stat {
+            text-align: center;
+        }
+
+        .club-stat-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cr7-red);
+            display: block;
+        }
+
+        .club-stat-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            color: var(--cr7-silver);
+            letter-spacing: 1px;
+        }
+
+        /* СЕКЦИЯ РЕКОРДОВ */
+        .records-showcase {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--cr7-gray) 0%, var(--cr7-black) 100%);
+        }
+
+        .records-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .record-item {
+            background: rgba(255,255,255,0.05);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .record-item:hover {
+            background: rgba(255,0,0,0.1);
+            border-color: var(--cr7-red);
+            transform: scale(1.05);
+        }
+
+        .record-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cr7-red);
+            margin-bottom: 10px;
+        }
+
+        .record-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            color: var(--cr7-white);
+            letter-spacing: 1px;
+        }
+
+        /* ФУТЕР - УНИКАЛЬНЫЙ ДИЗАЙН */
+        .cr7-footer {
+            background: var(--cr7-black);
+            padding: 60px 20px 30px;
+            border-top: 3px solid var(--cr7-red);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand {
+            text-align: center;
+        }
+
+        .footer-cr7 {
+            font-family: 'Anton', sans-serif;
+            font-size: 5rem;
+            color: var(--cr7-red);
+            text-shadow: 3px 3px 0 var(--cr7-white);
+            margin-bottom: 20px;
+        }
+
+        .footer-siuuu {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--cr7-silver);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--cr7-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cr7-white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--cr7-white);
+            color: var(--cr7-red);
+            transform: scale(1.2);
+        }
+
+        .footer-links h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cr7-white);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--cr7-silver);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--cr7-red);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--cr7-gray);
+            color: var(--cr7-silver);
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .cr7-nav {
+                display: none;
+            }
+
+            .records-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cr7-badge {
+                width: 250px;
+                height: 250px;
+            }
+
+            .badge-text {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ХЕДЕР -->
+    <header class="cr7-header">
+        <div class="header-content">
+            <div class="cr7-brand">
+                <div class="cr7-number">7</div>
+                <div class="cr7-name">Ronaldo</div>
+            </div>
+            <nav class="cr7-nav">
+                <a href="#achievements" class="nav-item">Трофеи</a>
+                <a href="#career" class="nav-item">Карьера</a>
+                <a href="#records" class="nav-item">Рекорды</a>
+                <a href="#legacy" class="nav-item">Наследие</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ГЕРОЙ СЕКЦИЯ -->
+    <section class="cr7-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">CRISTIANO<br>RONALDO</h1>
+                <div class="hero-subtitle">ВЕЛИЧАЙШИЙ ФУТБОЛИСТ ВСЕХ ВРЕМЁН</div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Золотых мячей</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">850+</span>
+                        <span class="stat-label">Голов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">34</span>
+                        <span class="stat-label">Трофея</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="cr7-badge">
+                    <div class="badge-text">CR7</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ ДОСТИЖЕНИЙ -->
+    <section id="achievements" class="achievements-section">
+        <h2 class="section-title">ЗАВОЕВАННЫЕ ТРОФЕИ</h2>
+        <div class="trophies-grid">
+            <div class="trophy-card">
+                <div class="trophy-icon">🏆</div>
+                <div class="trophy-count">5</div>
+                <div class="trophy-name">Золотой мяч</div>
+                <p>Лучший футболист мира</p>
+            </div>
+            <div class="trophy-card">
+                <div class="trophy-icon">⭐</div>
+                <div class="trophy-count">5</div>
+                <div class="trophy-name">Лига Чемпионов</div>
+                <p>Победитель УЕФА</p>
+            </div>
+            <div class="trophy-card">
+                <div class="trophy-icon">🇪🇺</div>
+                <div class="trophy-count">1</div>
+                <div class="trophy-name">Чемпион Европы</div>
+                <p>Португалия 2016</p>
+            </div>
+            <div class="trophy-card">
+                <div class="trophy-icon">👑</div>
+                <div class="trophy-count">4</div>
+                <div class="trophy-name">The Best FIFA</div>
+                <p>Лучший игрок ФИФА</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ КАРЬЕРЫ -->
+    <section id="career" class="career-journey">
+        <h2 class="section-title">ПУТЬ К ВЕЛИЧИЮ</h2>
+        <div class="journey-container">
+            <div class="club-card">
+                <div class="club-years">2023-н.в.</div>
+                <div class="club-name">Al Nassr</div>
+                <p>Новый вызов в Саудовской Аравии</p>
+                <div class="club-stats">
+                    <div class="club-stat">
+                        <span class="club-stat-number">40+</span>
+                        <span class="club-stat-label">Голов</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-card">
+                <div class="club-years">2021-2022</div>
+                <div class="club-name">Man United</div>
+                <p>Возвращение в легендарный клуб</p>
+                <div class="club-stats">
+                    <div class="club-stat">
+                        <span class="club-stat-number">27</span>
+                        <span class="club-stat-label">Голов</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-card">
+                <div class="club-years">2018-2021</div>
+                <div class="club-name">Juventus</div>
+                <p>Завоевание Италии</p>
+                <div class="club-stats">
+                    <div class="club-stat">
+                        <span class="club-stat-number">101</span>
+                        <span class="club-stat-label">Гол</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-card">
+                <div class="club-years">2009-2018</div>
+                <div class="club-name">Real Madrid</div>
+                <p>Золотая эра</p>
+                <div class="club-stats">
+                    <div class="club-stat">
+                        <span class="club-stat-number">451</span>
+                        <span class="club-stat-label">Гол</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ РЕКОРДОВ -->
+    <section id="records" class="records-showcase">
+        <h2 class="section-title">МИРОВЫЕ РЕКОРДЫ</h2>
+        <div class="records-grid">
+            <div class="record-item">
+                <div class="record-number">850+</div>
+                <div class="record-text">Голов в карьере</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">128</div>
+                <div class="record-text">Голов за сборную</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">140+</div>
+                <div class="record-text">Голов в ЛЧ</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">200+</div>
+                <div class="record-text">Матчей за сборную</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">61</div>
+                <div class="record-text">Гол в сезоне</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">34</div>
+                <div class="record-text">Трофея</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">6</div>
+                <div class="record-text">Чемпионатов</div>
+            </div>
+            <div class="record-item">
+                <div class="record-number">4</div>
+                <div class="record-text">Золотых бутсы</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer class="cr7-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-cr7">CR7</div>
+                <div class="footer-siuuu">Siuuu!</div>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>КЛУБЫ</h3>
+                <ul>
+                    <li><a href="#">Al Nassr</a></li>
+                    <li><a href="#">Man United</a></li>
+                    <li><a href="#">Juventus</a></li>
+                    <li><a href="#">Real Madrid</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>CR7 BRAND</h3>
+                <ul>
+                    <li><a href="#">Одежда</a></li>
+                    <li><a href="#">Парфюмерия</a></li>
+                    <li><a href="#">Фитнес</a></li>
+                    <li><a href="#">Отели</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 CRISTIANO RONALDO. THE GOAT. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+</body>
+</html>
